@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace WFMiniERP
 {
-    public partial class Cliente : Form
+    public partial class FormCliente : Form
     {
-        public Cliente()
+        public FormCliente()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void button_Consultar_Click(object sender, EventArgs e)

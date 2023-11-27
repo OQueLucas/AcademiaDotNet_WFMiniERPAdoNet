@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace WFMiniERP
 {
-    public partial class Produto : Form
+    public partial class FormFornecedor : Form
     {
-        public Produto()
+        public FormFornecedor()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
         }
     }
 }

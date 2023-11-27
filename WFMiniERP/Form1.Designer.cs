@@ -31,9 +31,9 @@
             button_Adicionar = new Button();
             textBox_Consultar = new TextBox();
             dataGridView_Clientes = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            button_Clientes = new Button();
+            button_Produtos = new Button();
+            button_Fornecedores = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Clientes).BeginInit();
             SuspendLayout();
             // 
@@ -63,41 +63,44 @@
             dataGridView_Clientes.Size = new Size(592, 318);
             dataGridView_Clientes.TabIndex = 9;
             // 
-            // button1
+            // button_Clientes
             // 
-            button1.Location = new Point(695, 31);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 12;
-            button1.Text = "Clientes";
-            button1.UseVisualStyleBackColor = true;
+            button_Clientes.Location = new Point(695, 31);
+            button_Clientes.Name = "button_Clientes";
+            button_Clientes.Size = new Size(93, 23);
+            button_Clientes.TabIndex = 12;
+            button_Clientes.Text = "Clientes";
+            button_Clientes.UseVisualStyleBackColor = true;
+            button_Clientes.Click += button_Clientes_Click;
             // 
-            // button2
+            // button_Produtos
             // 
-            button2.Location = new Point(695, 170);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 13;
-            button2.Text = "Produtos";
-            button2.UseVisualStyleBackColor = true;
+            button_Produtos.Location = new Point(695, 171);
+            button_Produtos.Name = "button_Produtos";
+            button_Produtos.Size = new Size(93, 23);
+            button_Produtos.TabIndex = 13;
+            button_Produtos.Text = "Produtos";
+            button_Produtos.UseVisualStyleBackColor = true;
+            button_Produtos.Click += button_Produtos_Click;
             // 
-            // button3
+            // button_Fornecedores
             // 
-            button3.Location = new Point(695, 102);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 14;
-            button3.Text = "Fornecedores";
-            button3.UseVisualStyleBackColor = true;
+            button_Fornecedores.Location = new Point(695, 103);
+            button_Fornecedores.Name = "button_Fornecedores";
+            button_Fornecedores.Size = new Size(93, 23);
+            button_Fornecedores.TabIndex = 14;
+            button_Fornecedores.Text = "Fornecedores";
+            button_Fornecedores.UseVisualStyleBackColor = true;
+            button_Fornecedores.Click += button_Fornecedores_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(button_Fornecedores);
+            Controls.Add(button_Produtos);
+            Controls.Add(button_Clientes);
             Controls.Add(button_Adicionar);
             Controls.Add(textBox_Consultar);
             Controls.Add(dataGridView_Clientes);
@@ -113,8 +116,8 @@
         private Button button_Adicionar;
         private TextBox textBox_Consultar;
         private DataGridView dataGridView_Clientes;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button button_Clientes;
+        private Button button_Produtos;
+        private Button button_Fornecedores;
     }
 }

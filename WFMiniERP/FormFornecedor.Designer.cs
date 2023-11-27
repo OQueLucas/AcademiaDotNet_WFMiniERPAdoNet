@@ -1,6 +1,6 @@
 ﻿namespace WFMiniERP
 {
-    partial class Fornecedor
+    partial class FormFornecedor
     {
         /// <summary>
         /// Required designer variable.
