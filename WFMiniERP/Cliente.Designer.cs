@@ -1,0 +1,179 @@
+﻿namespace WFMiniERP
+{
+    partial class Cliente
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            button_Consultar = new Button();
+            textBox_Consultar = new TextBox();
+            groupBox_Cadastro = new GroupBox();
+            label_Nome = new Label();
+            textBox_Nome = new TextBox();
+            label_CPF = new Label();
+            textBox_CPF = new TextBox();
+            button_Cadastrar = new Button();
+            dataGridView_Clientes = new DataGridView();
+            label_Email = new Label();
+            textBox_Email = new TextBox();
+            groupBox_Cadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView_Clientes).BeginInit();
+            SuspendLayout();
+            // 
+            // button_Consultar
+            // 
+            button_Consultar.FlatStyle = FlatStyle.System;
+            button_Consultar.Location = new Point(413, 30);
+            button_Consultar.Name = "button_Consultar";
+            button_Consultar.Size = new Size(75, 23);
+            button_Consultar.TabIndex = 8;
+            button_Consultar.Text = "Consultar";
+            button_Consultar.UseVisualStyleBackColor = true;
+            button_Consultar.Click += button_Consultar_Click;
+            // 
+            // textBox_Consultar
+            // 
+            textBox_Consultar.Location = new Point(45, 30);
+            textBox_Consultar.Name = "textBox_Consultar";
+            textBox_Consultar.Size = new Size(362, 23);
+            textBox_Consultar.TabIndex = 7;
+            // 
+            // groupBox_Cadastro
+            // 
+            groupBox_Cadastro.Controls.Add(label_Email);
+            groupBox_Cadastro.Controls.Add(textBox_Email);
+            groupBox_Cadastro.Controls.Add(label_Nome);
+            groupBox_Cadastro.Controls.Add(textBox_Nome);
+            groupBox_Cadastro.Controls.Add(label_CPF);
+            groupBox_Cadastro.Controls.Add(textBox_CPF);
+            groupBox_Cadastro.Controls.Add(button_Cadastrar);
+            groupBox_Cadastro.Location = new Point(550, 30);
+            groupBox_Cadastro.Name = "groupBox_Cadastro";
+            groupBox_Cadastro.Size = new Size(238, 260);
+            groupBox_Cadastro.TabIndex = 6;
+            groupBox_Cadastro.TabStop = false;
+            groupBox_Cadastro.Text = "Cadastro";
+            // 
+            // label_Nome
+            // 
+            label_Nome.AutoSize = true;
+            label_Nome.Location = new Point(11, 92);
+            label_Nome.Name = "label_Nome";
+            label_Nome.Size = new Size(40, 15);
+            label_Nome.TabIndex = 5;
+            label_Nome.Text = "Nome";
+            // 
+            // textBox_Nome
+            // 
+            textBox_Nome.Location = new Point(6, 114);
+            textBox_Nome.Name = "textBox_Nome";
+            textBox_Nome.Size = new Size(226, 23);
+            textBox_Nome.TabIndex = 4;
+            // 
+            // label_CPF
+            // 
+            label_CPF.AutoSize = true;
+            label_CPF.Location = new Point(11, 25);
+            label_CPF.Name = "label_CPF";
+            label_CPF.Size = new Size(28, 15);
+            label_CPF.TabIndex = 3;
+            label_CPF.Text = "CPF";
+            // 
+            // textBox_CPF
+            // 
+            textBox_CPF.ImeMode = ImeMode.On;
+            textBox_CPF.Location = new Point(6, 47);
+            textBox_CPF.Name = "textBox_CPF";
+            textBox_CPF.Size = new Size(226, 23);
+            textBox_CPF.TabIndex = 2;
+            // 
+            // button_Cadastrar
+            // 
+            button_Cadastrar.Location = new Point(157, 219);
+            button_Cadastrar.Name = "button_Cadastrar";
+            button_Cadastrar.Size = new Size(75, 23);
+            button_Cadastrar.TabIndex = 1;
+            button_Cadastrar.Text = "Cadastrar";
+            button_Cadastrar.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_Clientes
+            // 
+            dataGridView_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_Clientes.Location = new Point(12, 103);
+            dataGridView_Clientes.Name = "dataGridView_Clientes";
+            dataGridView_Clientes.RowTemplate.Height = 25;
+            dataGridView_Clientes.Size = new Size(518, 318);
+            dataGridView_Clientes.TabIndex = 5;
+            // 
+            // label_Email
+            // 
+            label_Email.AutoSize = true;
+            label_Email.Location = new Point(11, 157);
+            label_Email.Name = "label_Email";
+            label_Email.Size = new Size(36, 15);
+            label_Email.TabIndex = 7;
+            label_Email.Text = "Email";
+            // 
+            // textBox_Email
+            // 
+            textBox_Email.Location = new Point(6, 179);
+            textBox_Email.Name = "textBox_Email";
+            textBox_Email.Size = new Size(226, 23);
+            textBox_Email.TabIndex = 6;
+            // 
+            // Cliente
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(button_Consultar);
+            Controls.Add(textBox_Consultar);
+            Controls.Add(groupBox_Cadastro);
+            Controls.Add(dataGridView_Clientes);
+            Name = "Cliente";
+            Text = "Cliente";
+            groupBox_Cadastro.ResumeLayout(false);
+            groupBox_Cadastro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView_Clientes).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button button_Consultar;
+        private TextBox textBox_Consultar;
+        private GroupBox groupBox_Cadastro;
+        private Label label_Nome;
+        private TextBox textBox_Nome;
+        private Label label_CPF;
+        private TextBox textBox_CPF;
+        private Button button_Cadastrar;
+        private DataGridView dataGridView_Clientes;
+        private Label label_Email;
+        private TextBox textBox_Email;
+    }
+}
