@@ -11,10 +11,21 @@ namespace WP_AdoNet
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Banco bd = new();
             DataTable dt = new();
+            Pessoa p = new();
 
-            dt = bd.executaConsulta("select * from pessoas");
+            if (String.IsNullOrEmpty(textBox1.Text))
+            {
+                dt = p.BuscaPessoas();
+            }
+            else
+            {
+                p.id = int.Parse(textBox1.Text);
+                p = p.BuscaPessoaByIdDR();
+                MessageBox.Show(p.nome);
+
+                //dt = p.BuscaPessoaById();
+            }
 
             dataGridView1.DataSource = dt;
         }

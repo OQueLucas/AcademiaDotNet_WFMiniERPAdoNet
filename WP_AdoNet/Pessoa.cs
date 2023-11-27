@@ -121,5 +121,103 @@ namespace WP_AdoNet
                 bd.fecharConexao();
             }
         }
+        public DataTable BuscaPessoas()
+        {
+            Banco bd = new();
+            try
+            {
+                SqlConnection cn = bd.abrirConexao();
+
+                SqlCommand sqlCommand = new()
+                {
+                    Connection = cn,
+                    CommandType = CommandType.Text,
+                    CommandText = "select * from pessoas"
+                };
+
+                sqlCommand.ExecuteNonQuery();
+
+                DataTable dt = new();
+                SqlDataAdapter adapter = new(sqlCommand);
+
+                adapter.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.fecharConexao();
+            }
+        }
+
+        public DataTable BuscaPessoaById()
+        {
+            Banco bd = new();
+
+            try
+            {
+                SqlConnection cn = bd.abrirConexao();
+                SqlCommand sqlCommand = new()
+                {
+                    Connection = cn,
+                    CommandType = CommandType.Text,
+                    CommandText = "select * from pessoas where id = @id"
+                };
+
+                sqlCommand.Parameters.Add("@id", SqlDbType.Int);
+                sqlCommand.Parameters[0].Value = id;
+                sqlCommand.ExecuteNonQuery();
+
+                DataTable dt = new();
+                SqlDataAdapter adapter = new(sqlCommand);
+                adapter.Fill(dt);
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.fecharConexao();
+            }
+        }
+
+        public Pessoa BuscaPessoaByIdDR()
+        {
+            Banco bd = new();
+
+            try
+            {
+                SqlConnection cn = bd.abrirConexao();
+                SqlCommand command = new("select * from pessoas", cn);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if(reader.GetInt32(0) == id)
+                    {
+                        nome = reader.GetString(1);
+                        idade = reader.GetInt32(2);
+                    return this;
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.fecharConexao();
+            }
+        }
     }
 }
