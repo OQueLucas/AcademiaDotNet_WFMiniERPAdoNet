@@ -60,57 +60,49 @@ namespace WFMiniERP
             LimparCampos();
         }
 
-        private void Atualizar(int linha)
+        private bool Atualizar(Cliente clienteAtualizado)
         {
-            Cliente cliente = new();
-            cliente.ID = int.Parse(dataGridView_Clientes.Rows[linha].Cells["Column_ID"].Value.ToString());
-            cliente.CPF = dataGridView_Clientes.Rows[linha].Cells["Column_CPF"].EditedFormattedValue.ToString();
-            cliente.Nome = dataGridView_Clientes.Rows[linha].Cells["Column_Nome"].EditedFormattedValue.ToString();
-            cliente.Email = dataGridView_Clientes.Rows[linha].Cells["Column_Email"].EditedFormattedValue.ToString();
-
-            if (cliente == null) return;
-
-            Cliente verifica = new();
-            verifica.BuscaClientesById(cliente.ID);
-
-            if (verifica.CPF == cliente.CPF && verifica.Nome == cliente.Nome && verifica.Email == cliente.Email)
-            {
-                return;
-            }
-
-            DialogResult result = MessageBox.Show($"Deseja alterar: {cliente.Nome}", "Alterar registro", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show($"Deseja alterar: {clienteAtualizado.Nome}", "Alterar registro", MessageBoxButtons.OKCancel);
 
             if (result == DialogResult.Cancel)
             {
-                dataGridView_Clientes.Rows[linha].Cells["Column_CPF"].Value = verifica.CPF;
-                dataGridView_Clientes.Rows[linha].Cells["Column_Nome"].Value = verifica.Nome;
-                dataGridView_Clientes.Rows[linha].Cells["Column_Email"].Value = verifica.Email;
-                return;
+                return false;
             }
 
-            if (cliente.Atualizar())
+            if (clienteAtualizado.Atualizar())
             {
                 MessageBox.Show("Atualizado com sucesso!");
+                return true;
             }
+            return false;
         }
-
 
         private void dataGridView_Clientes_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             int linha = dataGridView_Clientes.CurrentRow.Index;
-            //Cliente cliente = dataGridView_Clientes.CurrentRow as Cliente;
 
-            //if (!dataGridView_Clientes.CurrentRow.Cells.) return;
+            Cliente clienteAtualizado = new()
+            {
+                ID = int.Parse(dataGridView_Clientes.Rows[linha].Cells["Column_ID"].Value.ToString()),
+                CPF = dataGridView_Clientes.Rows[linha].Cells["Column_CPF"].EditedFormattedValue.ToString(),
+                Nome = dataGridView_Clientes.Rows[linha].Cells["Column_Nome"].EditedFormattedValue.ToString(),
+                Email = dataGridView_Clientes.Rows[linha].Cells["Column_Email"].EditedFormattedValue.ToString()
+            };
 
-            //Cliente verifica = new();
-            //verifica.BuscaClientesById(cliente.ID);
+            if (clienteAtualizado == null) return;
 
-            //if (verifica.CPF == cliente.CPF && verifica.Nome == cliente.Nome && verifica.Email == cliente.Email)
-            //{
-            //    return;
-            //}
+            Cliente cliente = new();
+            cliente.BuscaClientesById(clienteAtualizado.ID);
 
-            Atualizar(linha);
+            if (cliente.CPF == clienteAtualizado.CPF && cliente.Nome == clienteAtualizado.Nome && cliente.Email == clienteAtualizado.Email)
+                return;
+
+            if(!Atualizar(clienteAtualizado))
+            {
+                dataGridView_Clientes.Rows[linha].Cells["Column_CPF"].Value = cliente.CPF;
+                dataGridView_Clientes.Rows[linha].Cells["Column_Nome"].Value = cliente.Nome;
+                dataGridView_Clientes.Rows[linha].Cells["Column_Email"].Value = cliente.Email;
+            }
         }
     }
 }
