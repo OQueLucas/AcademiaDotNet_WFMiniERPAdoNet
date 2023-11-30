@@ -78,9 +78,9 @@
             groupBox_Cadastro.Controls.Add(textBox_Nome);
             groupBox_Cadastro.Controls.Add(label_CPF);
             groupBox_Cadastro.Controls.Add(textBox_CPF);
-            groupBox_Cadastro.Location = new Point(589, 12);
+            groupBox_Cadastro.Location = new Point(588, 12);
             groupBox_Cadastro.Name = "groupBox_Cadastro";
-            groupBox_Cadastro.Size = new Size(199, 238);
+            groupBox_Cadastro.Size = new Size(200, 238);
             groupBox_Cadastro.TabIndex = 6;
             groupBox_Cadastro.TabStop = false;
             groupBox_Cadastro.Text = "Cadastro";
@@ -88,7 +88,7 @@
             // button_LimparCampos
             // 
             button_LimparCampos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button_LimparCampos.Location = new Point(7, 209);
+            button_LimparCampos.Location = new Point(8, 209);
             button_LimparCampos.Name = "button_LimparCampos";
             button_LimparCampos.Size = new Size(101, 23);
             button_LimparCampos.TabIndex = 10;
@@ -110,7 +110,7 @@
             textBox_Email.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_Email.Location = new Point(6, 165);
             textBox_Email.Name = "textBox_Email";
-            textBox_Email.Size = new Size(187, 23);
+            textBox_Email.Size = new Size(188, 23);
             textBox_Email.TabIndex = 6;
             // 
             // button_Cadastrar
@@ -138,7 +138,7 @@
             textBox_Nome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_Nome.Location = new Point(6, 105);
             textBox_Nome.Name = "textBox_Nome";
-            textBox_Nome.Size = new Size(187, 23);
+            textBox_Nome.Size = new Size(188, 23);
             textBox_Nome.TabIndex = 4;
             // 
             // label_CPF
@@ -156,7 +156,7 @@
             textBox_CPF.ImeMode = ImeMode.On;
             textBox_CPF.Location = new Point(6, 45);
             textBox_CPF.Name = "textBox_CPF";
-            textBox_CPF.Size = new Size(187, 23);
+            textBox_CPF.Size = new Size(188, 23);
             textBox_CPF.TabIndex = 2;
             // 
             // dataGridView_Clientes
