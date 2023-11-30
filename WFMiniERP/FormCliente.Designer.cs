@@ -42,6 +42,13 @@
             label_CPF = new Label();
             textBox_CPF = new TextBox();
             dataGridView_Clientes = new DataGridView();
+            Column_IDs = new DataGridViewTextBoxColumn();
+            Column_ID = new DataGridViewTextBoxColumn();
+            Column_CPF = new DataGridViewTextBoxColumn();
+            Column_Nome = new DataGridViewTextBoxColumn();
+            Column_Email = new DataGridViewTextBoxColumn();
+            Column_Edit = new DataGridViewButtonColumn();
+            Column_Excluir = new DataGridViewButtonColumn();
             groupBox_Cadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Clientes).BeginInit();
             SuspendLayout();
@@ -180,12 +187,53 @@
             // dataGridView_Clientes
             // 
             dataGridView_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_Clientes.Columns.AddRange(new DataGridViewColumn[] { Column_ID, Column_CPF, Column_Nome, Column_Email, Column_Edit, Column_Excluir });
             dataGridView_Clientes.Location = new Point(12, 103);
             dataGridView_Clientes.Name = "dataGridView_Clientes";
             dataGridView_Clientes.RowTemplate.Height = 25;
             dataGridView_Clientes.Size = new Size(483, 318);
             dataGridView_Clientes.TabIndex = 5;
-            dataGridView_Clientes.CellContentClick += dataGridView_Clientes_CellContentClick;
+            dataGridView_Clientes.RowLeave += dataGridView_Clientes_RowLeave;
+            // 
+            // Column_IDs
+            // 
+            Column_IDs.Name = "Column_IDs";
+            // 
+            // Column_ID
+            // 
+            Column_ID.DataPropertyName = "ID";
+            Column_ID.HeaderText = "ID";
+            Column_ID.Name = "Column_ID";
+            Column_ID.ReadOnly = true;
+            Column_ID.Visible = false;
+            // 
+            // Column_CPF
+            // 
+            Column_CPF.DataPropertyName = "CPF";
+            Column_CPF.HeaderText = "CPF";
+            Column_CPF.Name = "Column_CPF";
+            // 
+            // Column_Nome
+            // 
+            Column_Nome.DataPropertyName = "Nome";
+            Column_Nome.HeaderText = "Nome";
+            Column_Nome.Name = "Column_Nome";
+            // 
+            // Column_Email
+            // 
+            Column_Email.DataPropertyName = "Email";
+            Column_Email.HeaderText = "Email";
+            Column_Email.Name = "Column_Email";
+            // 
+            // Column_Edit
+            // 
+            Column_Edit.HeaderText = "Editar";
+            Column_Edit.Name = "Column_Edit";
+            // 
+            // Column_Excluir
+            // 
+            Column_Excluir.HeaderText = "Excluir";
+            Column_Excluir.Name = "Column_Excluir";
             // 
             // FormCliente
             // 
@@ -221,5 +269,12 @@
         private Button button_Atualizar;
         private Button button_Remover;
         private Button button_LimparCampos;
+        private DataGridViewTextBoxColumn Column_IDs;
+        private DataGridViewTextBoxColumn Column_ID;
+        private DataGridViewTextBoxColumn Column_CPF;
+        private DataGridViewTextBoxColumn Column_Nome;
+        private DataGridViewTextBoxColumn Column_Email;
+        private DataGridViewButtonColumn Column_Edit;
+        private DataGridViewButtonColumn Column_Excluir;
     }
 }

@@ -31,10 +31,10 @@
             dataGridView_Fornecedores = new DataGridView();
             button_Cadastrar = new Button();
             groupBox_Cadastro = new GroupBox();
-            textBox_CNPJ = new TextBox();
-            label_CNPJ = new Label();
             label_RazaoSocial = new Label();
             textBox_RazaoSocial = new TextBox();
+            label_CNPJ = new Label();
+            textBox_CNPJ = new TextBox();
             textBox_Consultar = new TextBox();
             button_Consultar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Fornecedores).BeginInit();
@@ -58,6 +58,7 @@
             button_Cadastrar.TabIndex = 1;
             button_Cadastrar.Text = "Cadastrar";
             button_Cadastrar.UseVisualStyleBackColor = true;
+            button_Cadastrar.Click += button_Cadastrar_Click;
             // 
             // groupBox_Cadastro
             // 
@@ -72,23 +73,6 @@
             groupBox_Cadastro.TabIndex = 2;
             groupBox_Cadastro.TabStop = false;
             groupBox_Cadastro.Text = "Cadastro";
-            // 
-            // textBox_CNPJ
-            // 
-            textBox_CNPJ.ImeMode = ImeMode.On;
-            textBox_CNPJ.Location = new Point(6, 47);
-            textBox_CNPJ.Name = "textBox_CNPJ";
-            textBox_CNPJ.Size = new Size(226, 23);
-            textBox_CNPJ.TabIndex = 2;
-            // 
-            // label_CNPJ
-            // 
-            label_CNPJ.AutoSize = true;
-            label_CNPJ.Location = new Point(11, 25);
-            label_CNPJ.Name = "label_CNPJ";
-            label_CNPJ.Size = new Size(34, 15);
-            label_CNPJ.TabIndex = 3;
-            label_CNPJ.Text = "CNPJ";
             // 
             // label_RazaoSocial
             // 
@@ -105,6 +89,23 @@
             textBox_RazaoSocial.Name = "textBox_RazaoSocial";
             textBox_RazaoSocial.Size = new Size(226, 23);
             textBox_RazaoSocial.TabIndex = 4;
+            // 
+            // label_CNPJ
+            // 
+            label_CNPJ.AutoSize = true;
+            label_CNPJ.Location = new Point(11, 25);
+            label_CNPJ.Name = "label_CNPJ";
+            label_CNPJ.Size = new Size(34, 15);
+            label_CNPJ.TabIndex = 3;
+            label_CNPJ.Text = "CNPJ";
+            // 
+            // textBox_CNPJ
+            // 
+            textBox_CNPJ.ImeMode = ImeMode.On;
+            textBox_CNPJ.Location = new Point(6, 47);
+            textBox_CNPJ.Name = "textBox_CNPJ";
+            textBox_CNPJ.Size = new Size(226, 23);
+            textBox_CNPJ.TabIndex = 2;
             // 
             // textBox_Consultar
             // 
@@ -123,7 +124,7 @@
             button_Consultar.Text = "Consultar";
             button_Consultar.UseVisualStyleBackColor = true;
             // 
-            // Fornecedor
+            // FormFornecedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -132,7 +133,7 @@
             Controls.Add(textBox_Consultar);
             Controls.Add(groupBox_Cadastro);
             Controls.Add(dataGridView_Fornecedores);
-            Name = "Fornecedor";
+            Name = "FormFornecedor";
             Text = "Fornecedor";
             ((System.ComponentModel.ISupportInitialize)dataGridView_Fornecedores).EndInit();
             groupBox_Cadastro.ResumeLayout(false);

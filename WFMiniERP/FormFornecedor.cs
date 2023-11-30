@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
+using WFMiniERP.Models;
 
 namespace WFMiniERP
 {
@@ -16,6 +9,27 @@ namespace WFMiniERP
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
+            BuscarFornecedor();
+        }
+
+        private void button_Cadastrar_Click(object sender, EventArgs e)
+        {
+            Fornecedor fornecedor = new();
+            fornecedor.CNPJ = textBox_CNPJ.Text;
+            fornecedor.RazaoSocial = textBox_RazaoSocial.Text;
+
+            if(fornecedor.Cadastrar())
+            {
+                BuscarFornecedor();
+                MessageBox.Show("Fornecedor cadastrado com sucesso!");
+            }
+        }
+
+        private void BuscarFornecedor()
+        {
+            Fornecedor fornecedor = new();
+            DataTable dt = fornecedor.Buscar();
+            dataGridView_Fornecedores.DataSource = dt;
         }
     }
 }

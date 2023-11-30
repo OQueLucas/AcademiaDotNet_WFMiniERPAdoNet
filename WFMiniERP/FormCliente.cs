@@ -1,4 +1,6 @@
 ﻿using System.Data;
+using System.Net.Http.Json;
+using System.Windows.Forms;
 using WFMiniERP.Models;
 
 namespace WFMiniERP
@@ -39,8 +41,6 @@ namespace WFMiniERP
             }
         }
 
-
-
         private void BuscarClientes()
         {
             Cliente cliente = new();
@@ -55,18 +55,62 @@ namespace WFMiniERP
             textBox_Email.Text = "";
         }
 
-        private void dataGridView_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            clienteId = int.Parse(dataGridView_Clientes.Rows[e.RowIndex].Cells[0].Value.ToString());
-            textBox_CPF.Text = dataGridView_Clientes.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBox_Nome.Text = dataGridView_Clientes.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox_Email.Text = dataGridView_Clientes.Rows[e.RowIndex].Cells[3].Value.ToString();
-        }
-
         private void button_LimparCampos_Click(object sender, EventArgs e)
         {
             LimparCampos();
+        }
+
+        private void Atualizar(int linha)
+        {
+            Cliente cliente = new();
+            cliente.ID = int.Parse(dataGridView_Clientes.Rows[linha].Cells["Column_ID"].Value.ToString());
+            cliente.CPF = dataGridView_Clientes.Rows[linha].Cells["Column_CPF"].EditedFormattedValue.ToString();
+            cliente.Nome = dataGridView_Clientes.Rows[linha].Cells["Column_Nome"].EditedFormattedValue.ToString();
+            cliente.Email = dataGridView_Clientes.Rows[linha].Cells["Column_Email"].EditedFormattedValue.ToString();
+
+            if (cliente == null) return;
+
+            Cliente verifica = new();
+            verifica.BuscaClientesById(cliente.ID);
+
+            if (verifica.CPF == cliente.CPF && verifica.Nome == cliente.Nome && verifica.Email == cliente.Email)
+            {
+                return;
+            }
+
+            DialogResult result = MessageBox.Show($"Deseja alterar: {cliente.Nome}", "Alterar registro", MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.Cancel)
+            {
+                dataGridView_Clientes.Rows[linha].Cells["Column_CPF"].Value = verifica.CPF;
+                dataGridView_Clientes.Rows[linha].Cells["Column_Nome"].Value = verifica.Nome;
+                dataGridView_Clientes.Rows[linha].Cells["Column_Email"].Value = verifica.Email;
+                return;
+            }
+
+            if (cliente.Atualizar())
+            {
+                MessageBox.Show("Atualizado com sucesso!");
+            }
+        }
+
+
+        private void dataGridView_Clientes_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            int linha = dataGridView_Clientes.CurrentRow.Index;
+            //Cliente cliente = dataGridView_Clientes.CurrentRow as Cliente;
+
+            //if (!dataGridView_Clientes.CurrentRow.Cells.) return;
+
+            //Cliente verifica = new();
+            //verifica.BuscaClientesById(cliente.ID);
+
+            //if (verifica.CPF == cliente.CPF && verifica.Nome == cliente.Nome && verifica.Email == cliente.Email)
+            //{
+            //    return;
+            //}
+
+            Atualizar(linha);
         }
     }
 }
