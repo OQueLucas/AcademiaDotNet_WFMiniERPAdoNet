@@ -32,22 +32,20 @@
             textBox_Consultar = new TextBox();
             groupBox_Cadastro = new GroupBox();
             button_LimparCampos = new Button();
-            button_Remover = new Button();
             label_Email = new Label();
             textBox_Email = new TextBox();
             button_Cadastrar = new Button();
             label_Nome = new Label();
             textBox_Nome = new TextBox();
-            button_Atualizar = new Button();
             label_CPF = new Label();
             textBox_CPF = new TextBox();
             dataGridView_Clientes = new DataGridView();
-            Column_IDs = new DataGridViewTextBoxColumn();
             Column_ID = new DataGridViewTextBoxColumn();
             Column_CPF = new DataGridViewTextBoxColumn();
             Column_Nome = new DataGridViewTextBoxColumn();
             Column_Email = new DataGridViewTextBoxColumn();
             Column_Excluir = new DataGridViewButtonColumn();
+            Column_IDs = new DataGridViewTextBoxColumn();
             groupBox_Cadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Clientes).BeginInit();
             SuspendLayout();
@@ -55,7 +53,7 @@
             // button_Consultar
             // 
             button_Consultar.FlatStyle = FlatStyle.System;
-            button_Consultar.Location = new Point(413, 30);
+            button_Consultar.Location = new Point(493, 41);
             button_Consultar.Name = "button_Consultar";
             button_Consultar.Size = new Size(75, 23);
             button_Consultar.TabIndex = 8;
@@ -65,26 +63,24 @@
             // 
             // textBox_Consultar
             // 
-            textBox_Consultar.Location = new Point(45, 30);
+            textBox_Consultar.Location = new Point(12, 12);
             textBox_Consultar.Name = "textBox_Consultar";
-            textBox_Consultar.Size = new Size(362, 23);
+            textBox_Consultar.Size = new Size(556, 23);
             textBox_Consultar.TabIndex = 7;
             // 
             // groupBox_Cadastro
             // 
             groupBox_Cadastro.Controls.Add(button_LimparCampos);
-            groupBox_Cadastro.Controls.Add(button_Remover);
             groupBox_Cadastro.Controls.Add(label_Email);
             groupBox_Cadastro.Controls.Add(textBox_Email);
             groupBox_Cadastro.Controls.Add(button_Cadastrar);
             groupBox_Cadastro.Controls.Add(label_Nome);
             groupBox_Cadastro.Controls.Add(textBox_Nome);
-            groupBox_Cadastro.Controls.Add(button_Atualizar);
             groupBox_Cadastro.Controls.Add(label_CPF);
             groupBox_Cadastro.Controls.Add(textBox_CPF);
-            groupBox_Cadastro.Location = new Point(541, 30);
+            groupBox_Cadastro.Location = new Point(589, 12);
             groupBox_Cadastro.Name = "groupBox_Cadastro";
-            groupBox_Cadastro.Size = new Size(247, 292);
+            groupBox_Cadastro.Size = new Size(199, 238);
             groupBox_Cadastro.TabIndex = 6;
             groupBox_Cadastro.TabStop = false;
             groupBox_Cadastro.Text = "Cadastro";
@@ -92,7 +88,7 @@
             // button_LimparCampos
             // 
             button_LimparCampos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button_LimparCampos.Location = new Point(140, 216);
+            button_LimparCampos.Location = new Point(7, 209);
             button_LimparCampos.Name = "button_LimparCampos";
             button_LimparCampos.Size = new Size(101, 23);
             button_LimparCampos.TabIndex = 10;
@@ -100,20 +96,10 @@
             button_LimparCampos.UseVisualStyleBackColor = true;
             button_LimparCampos.Click += button_LimparCampos_Click;
             // 
-            // button_Remover
-            // 
-            button_Remover.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button_Remover.Location = new Point(166, 253);
-            button_Remover.Name = "button_Remover";
-            button_Remover.Size = new Size(75, 23);
-            button_Remover.TabIndex = 9;
-            button_Remover.Text = "Remover";
-            button_Remover.UseVisualStyleBackColor = true;
-            // 
             // label_Email
             // 
             label_Email.AutoSize = true;
-            label_Email.Location = new Point(14, 157);
+            label_Email.Location = new Point(14, 145);
             label_Email.Name = "label_Email";
             label_Email.Size = new Size(36, 15);
             label_Email.TabIndex = 7;
@@ -122,15 +108,15 @@
             // textBox_Email
             // 
             textBox_Email.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Email.Location = new Point(6, 179);
+            textBox_Email.Location = new Point(6, 165);
             textBox_Email.Name = "textBox_Email";
-            textBox_Email.Size = new Size(235, 23);
+            textBox_Email.Size = new Size(187, 23);
             textBox_Email.TabIndex = 6;
             // 
             // button_Cadastrar
             // 
             button_Cadastrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button_Cadastrar.Location = new Point(6, 253);
+            button_Cadastrar.Location = new Point(121, 209);
             button_Cadastrar.Name = "button_Cadastrar";
             button_Cadastrar.Size = new Size(75, 23);
             button_Cadastrar.TabIndex = 1;
@@ -141,7 +127,7 @@
             // label_Nome
             // 
             label_Nome.AutoSize = true;
-            label_Nome.Location = new Point(14, 92);
+            label_Nome.Location = new Point(14, 85);
             label_Nome.Name = "label_Nome";
             label_Nome.Size = new Size(40, 15);
             label_Nome.TabIndex = 5;
@@ -150,20 +136,10 @@
             // textBox_Nome
             // 
             textBox_Nome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Nome.Location = new Point(6, 114);
+            textBox_Nome.Location = new Point(6, 105);
             textBox_Nome.Name = "textBox_Nome";
-            textBox_Nome.Size = new Size(235, 23);
+            textBox_Nome.Size = new Size(187, 23);
             textBox_Nome.TabIndex = 4;
-            // 
-            // button_Atualizar
-            // 
-            button_Atualizar.Anchor = AnchorStyles.Bottom;
-            button_Atualizar.Location = new Point(86, 253);
-            button_Atualizar.Name = "button_Atualizar";
-            button_Atualizar.Size = new Size(75, 23);
-            button_Atualizar.TabIndex = 8;
-            button_Atualizar.Text = "Atualizar";
-            button_Atualizar.UseVisualStyleBackColor = true;
             // 
             // label_CPF
             // 
@@ -178,25 +154,22 @@
             // 
             textBox_CPF.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_CPF.ImeMode = ImeMode.On;
-            textBox_CPF.Location = new Point(6, 47);
+            textBox_CPF.Location = new Point(6, 45);
             textBox_CPF.Name = "textBox_CPF";
-            textBox_CPF.Size = new Size(235, 23);
+            textBox_CPF.Size = new Size(187, 23);
             textBox_CPF.TabIndex = 2;
             // 
             // dataGridView_Clientes
             // 
             dataGridView_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Clientes.Columns.AddRange(new DataGridViewColumn[] { Column_ID, Column_CPF, Column_Nome, Column_Email, Column_Excluir });
-            dataGridView_Clientes.Location = new Point(12, 103);
+            dataGridView_Clientes.Location = new Point(12, 83);
             dataGridView_Clientes.Name = "dataGridView_Clientes";
             dataGridView_Clientes.RowTemplate.Height = 25;
-            dataGridView_Clientes.Size = new Size(483, 318);
+            dataGridView_Clientes.Size = new Size(556, 355);
             dataGridView_Clientes.TabIndex = 5;
+            dataGridView_Clientes.CellClick += dataGridView_Clientes_CellClick;
             dataGridView_Clientes.RowLeave += dataGridView_Clientes_RowLeave;
-            // 
-            // Column_IDs
-            // 
-            Column_IDs.Name = "Column_IDs";
             // 
             // Column_ID
             // 
@@ -235,6 +208,10 @@
             Column_Excluir.Text = "Excluir";
             Column_Excluir.UseColumnTextForButtonValue = true;
             // 
+            // Column_IDs
+            // 
+            Column_IDs.Name = "Column_IDs";
+            // 
             // FormCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -266,8 +243,6 @@
         private DataGridView dataGridView_Clientes;
         private Label label_Email;
         private TextBox textBox_Email;
-        private Button button_Atualizar;
-        private Button button_Remover;
         private Button button_LimparCampos;
         private DataGridViewTextBoxColumn Column_IDs;
         private DataGridViewTextBoxColumn Column_ID;

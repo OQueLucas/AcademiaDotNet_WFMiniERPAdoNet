@@ -1,7 +1,6 @@
 ﻿using System.Data;
-using System.Net.Http.Json;
-using System.Windows.Forms;
 using WFMiniERP.Models;
+using static System.Windows.Forms.LinkLabel;
 
 namespace WFMiniERP
 {
@@ -14,21 +13,51 @@ namespace WFMiniERP
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
             BuscarClientes();
+        }
 
-            button_Consultar.Click += delegate { BuscarClientes(); };
+        private void BuscarClientes()
+        {
+            Cliente cliente = new();
+            DataTable dt = cliente.Buscar();
+            dataGridView_Clientes.DataSource = dt;
         }
 
         private void button_Consultar_Click(object sender, EventArgs e)
         {
-            BuscarClientes();
+            DataTable dt = new();
+            Cliente cliente = new();
+
+            if (String.IsNullOrEmpty(textBox_Consultar.Text))
+            {
+                dt = cliente.Buscar();
+            }
+            else
+            {
+                cliente.ID = int.Parse(textBox_Consultar.Text);
+                cliente = cliente.BuscaClientesByIdDR(cliente.ID);
+
+                if (cliente == null) 
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                    return;
+                }
+
+                dt = cliente.BuscaPessoaById();
+
+                MessageBox.Show(cliente.Nome);
+            }
+
+            dataGridView_Clientes.DataSource = dt;
         }
 
         private void button_Cadastrar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.CPF = textBox_CPF.Text;
-            cliente.Nome = textBox_Nome.Text;
-            cliente.Email = textBox_Email.Text;
+            Cliente cliente = new()
+            {
+                CPF = textBox_CPF.Text,
+                Nome = textBox_Nome.Text,
+                Email = textBox_Email.Text
+            };
 
             if (cliente.Cadastrar())
             {
@@ -39,13 +68,6 @@ namespace WFMiniERP
             {
                 MessageBox.Show("Falha ao cadastrar");
             }
-        }
-
-        private void BuscarClientes()
-        {
-            Cliente cliente = new();
-            DataTable dt = cliente.Buscar();
-            dataGridView_Clientes.DataSource = dt;
         }
 
         private void LimparCampos()
@@ -60,16 +82,16 @@ namespace WFMiniERP
             LimparCampos();
         }
 
-        private bool Atualizar(Cliente clienteAtualizado)
+        private bool Atualizar(Cliente cliente)
         {
-            DialogResult result = MessageBox.Show($"Deseja alterar: {clienteAtualizado.Nome}", "Alterar registro", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show($"Deseja alterar: {cliente.Nome}", "Alterar registro", MessageBoxButtons.OKCancel);
 
             if (result == DialogResult.Cancel)
             {
                 return false;
             }
 
-            if (clienteAtualizado.Atualizar())
+            if (cliente.Atualizar())
             {
                 MessageBox.Show("Atualizado com sucesso!");
                 return true;
@@ -92,17 +114,45 @@ namespace WFMiniERP
             if (clienteAtualizado == null) return;
 
             Cliente cliente = new();
-            cliente.BuscaClientesById(clienteAtualizado.ID);
+            cliente.BuscaClientesByIdDR(clienteAtualizado.ID);
 
-            if (cliente.CPF == clienteAtualizado.CPF && cliente.Nome == clienteAtualizado.Nome && cliente.Email == clienteAtualizado.Email)
-                return;
+            if (cliente.CPF == clienteAtualizado.CPF && cliente.Nome == clienteAtualizado.Nome && cliente.Email == clienteAtualizado.Email) return;
 
-            if(!Atualizar(clienteAtualizado))
+            if (!Atualizar(clienteAtualizado))
             {
                 dataGridView_Clientes.Rows[linha].Cells["Column_CPF"].Value = cliente.CPF;
                 dataGridView_Clientes.Rows[linha].Cells["Column_Nome"].Value = cliente.Nome;
                 dataGridView_Clientes.Rows[linha].Cells["Column_Email"].Value = cliente.Email;
             }
+        }
+        private bool Excluir(Cliente cliente)
+        {
+            DialogResult result = MessageBox.Show($"Deseja excluir: {cliente.Nome}", "Excluir registro", MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.Cancel)
+            {
+                return false;
+            }
+
+            if (cliente.Excluir())
+            {
+                MessageBox.Show("Excluído com sucesso!");
+                return true;
+            }
+            return false;
+        }
+
+        private void dataGridView_Clientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool excluirClick = e.ColumnIndex == dataGridView_Clientes.Rows[e.RowIndex].Cells["Column_Excluir"].ColumnIndex;
+
+            if (!excluirClick) return;
+
+            Cliente cliente = new();
+            cliente.ID = int.Parse(dataGridView_Clientes.Rows[e.RowIndex].Cells["Column_ID"].Value.ToString());
+
+            Excluir(cliente);
+            dataGridView_Clientes.Rows.RemoveAt(e.RowIndex);
         }
     }
 }

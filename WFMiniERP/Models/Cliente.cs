@@ -103,7 +103,6 @@ namespace WFMiniERP.Models
                 adapter.Fill(dt);
 
                 return dt;
-
             }
             catch (Exception ex)
             {
@@ -158,7 +157,41 @@ namespace WFMiniERP.Models
             }
         }
 
-        public Cliente BuscaClientesById(int id)
+        public DataTable BuscaPessoaById()
+        {
+            Banco bd = new();
+
+            try
+            {
+                SqlConnection cn = bd.AbrirConexao();
+                SqlCommand sqlCommand = new()
+                {
+                    Connection = cn,
+                    CommandType = CommandType.Text,
+                    CommandText = "select * from clientes where id = @id"
+                };
+
+                sqlCommand.Parameters.Add("@id", SqlDbType.Int);
+                sqlCommand.Parameters[0].Value = ID;
+                sqlCommand.ExecuteNonQuery();
+
+                DataTable dt = new();
+                SqlDataAdapter adapter = new(sqlCommand);
+                adapter.Fill(dt);
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.FecharConexao();
+            }
+        }
+
+        public Cliente BuscaClientesByIdDR(int id)
         {
             Banco bd = new();
 
@@ -183,6 +216,42 @@ namespace WFMiniERP.Models
             catch (Exception ex)
             {
                 return null;
+            }
+            finally
+            {
+                bd.FecharConexao();
+            }
+        }
+
+        public bool Excluir()
+        {
+            Banco bd = new();
+            SqlConnection cn = bd.AbrirConexao();
+
+            SqlTransaction tran = cn.BeginTransaction();
+
+            SqlCommand command = new()
+            {
+                Connection = cn,
+                Transaction = tran,
+                CommandType = CommandType.Text,
+                CommandText = "delete from clientes where id = @id"
+            };
+
+            command.Parameters.Add("@id", SqlDbType.Int);
+
+            command.Parameters[0].Value = ID;
+
+            try
+            {
+                command.ExecuteNonQuery();
+                tran.Commit();
+                return true;
+            }
+            catch
+            {
+                tran.Rollback();
+                return false;
             }
             finally
             {
