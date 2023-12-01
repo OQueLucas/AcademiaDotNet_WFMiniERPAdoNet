@@ -1,3 +1,4 @@
+using System.Data;
 using WFMiniERP.Models;
 
 namespace WFMiniERP
@@ -35,6 +36,7 @@ namespace WFMiniERP
         private void Form1_Load(object sender, EventArgs e)
         {
             AtualizarClientes();
+            AtualizarProdutos();
         }
 
         private void AtualizarClientes()
@@ -46,9 +48,59 @@ namespace WFMiniERP
             comboBox_Clientes.SelectedItem = null;
         }
 
+        private void AtualizarProdutos()
+        {
+            Produto produto = new();
+            comboBox_Produtos.DataSource = produto.Buscar();
+            comboBox_Produtos.DisplayMember = "Nome";
+            comboBox_Produtos.ValueMember = "ID";
+            comboBox_Produtos.SelectedItem = null;
+        }
+
         private void button_AtualizarClientes_Click(object sender, EventArgs e)
         {
             AtualizarClientes();
+            AtualizarProdutos();
+        }
+
+        private void button_EmitirNota_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button_Adicionar_Click(object sender, EventArgs e)
+        {
+            Produto produto = new();
+            DataRowView produtoRow = comboBox_Produtos.SelectedItem as DataRowView;
+
+            if (produtoRow == null)
+            {
+                MessageBox.Show("Selecione o produto");
+                return;
+            }
+
+            int produtoID = (int)produtoRow.Row["ID"];
+
+            produto.BuscaByIdDR(produtoID);
+
+            if (produto == null)
+            {
+                MessageBox.Show("Produto não encontrado");
+                return;
+            }
+
+            MessageBox.Show(produto.Nome
+                + "\n" + produto.Preco.ToString());
+
+            ItemNota item = new() { Nome = produto.Nome, Preco = produto.Preco };
+            item.Quantidade = int.Parse(numericUpDown_Quantidade.Value.ToString());
+
+            MessageBox.Show(item.Nome
+                + "\n" + item.Preco.ToString()
+                + "\n" + item.Quantidade.ToString());
+
+            dataGridView_Produtos.Rows.Add(new string[] { dataGridView_Produtos.RowCount.ToString(), item.Nome, item.Preco.ToString(), item.Quantidade.ToString() }) ;
+            
         }
     }
 }
