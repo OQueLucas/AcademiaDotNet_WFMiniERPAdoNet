@@ -99,9 +99,9 @@
             // button_Clientes
             // 
             button_Clientes.Anchor = AnchorStyles.Top;
-            button_Clientes.Location = new Point(19, 22);
+            button_Clientes.Location = new Point(22, 22);
             button_Clientes.Name = "button_Clientes";
-            button_Clientes.Size = new Size(93, 23);
+            button_Clientes.Size = new Size(95, 25);
             button_Clientes.TabIndex = 12;
             button_Clientes.Text = "Clientes";
             button_Clientes.UseVisualStyleBackColor = true;
@@ -110,9 +110,9 @@
             // button_Produtos
             // 
             button_Produtos.Anchor = AnchorStyles.Bottom;
-            button_Produtos.Location = new Point(19, 106);
+            button_Produtos.Location = new Point(22, 108);
             button_Produtos.Name = "button_Produtos";
-            button_Produtos.Size = new Size(93, 23);
+            button_Produtos.Size = new Size(95, 25);
             button_Produtos.TabIndex = 13;
             button_Produtos.Text = "Produtos";
             button_Produtos.UseVisualStyleBackColor = true;
@@ -121,9 +121,9 @@
             // button_Fornecedores
             // 
             button_Fornecedores.Anchor = AnchorStyles.None;
-            button_Fornecedores.Location = new Point(19, 64);
+            button_Fornecedores.Location = new Point(22, 65);
             button_Fornecedores.Name = "button_Fornecedores";
-            button_Fornecedores.Size = new Size(93, 23);
+            button_Fornecedores.Size = new Size(95, 25);
             button_Fornecedores.TabIndex = 14;
             button_Fornecedores.Text = "Fornecedores";
             button_Fornecedores.UseVisualStyleBackColor = true;
@@ -163,9 +163,9 @@
             groupBox_Cadastro.Controls.Add(button_Clientes);
             groupBox_Cadastro.Controls.Add(button_Produtos);
             groupBox_Cadastro.Controls.Add(button_Fornecedores);
-            groupBox_Cadastro.Location = new Point(653, 12);
+            groupBox_Cadastro.Location = new Point(648, 12);
             groupBox_Cadastro.Name = "groupBox_Cadastro";
-            groupBox_Cadastro.Size = new Size(135, 139);
+            groupBox_Cadastro.Size = new Size(140, 139);
             groupBox_Cadastro.TabIndex = 18;
             groupBox_Cadastro.TabStop = false;
             groupBox_Cadastro.Text = "Cadastros";

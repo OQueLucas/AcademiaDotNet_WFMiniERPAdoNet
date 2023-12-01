@@ -205,6 +205,7 @@ namespace WFMiniERP.Models
                 {
                     if (reader.GetInt32(0) == id)
                     {
+                        ID = reader.GetInt32(0);
                         CPF = reader.GetString(1);
                         Nome = reader.GetString(2);
                         Email = reader.GetString(3);
