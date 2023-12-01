@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using WFMiniERP.Models;
-using static System.Windows.Forms.LinkLabel;
 
 namespace WFMiniERP
 {

@@ -1,5 +1,4 @@
-﻿
-namespace WFMiniERP.Models.Enums
+﻿namespace WFMiniERP.Models.Enums
 {
     internal enum StatusNota : int
     {
