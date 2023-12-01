@@ -31,9 +31,9 @@
             button_Consultar = new Button();
             textBox_Consultar = new TextBox();
             groupBox_Cadastro = new GroupBox();
+            comboBox_Fornecedor = new ComboBox();
             label_Fornecedor = new Label();
             label_QuantidadeEstoque = new Label();
-            textBox_Fornecedor = new TextBox();
             label_Nome = new Label();
             textBox_QuantidadeEstoque = new TextBox();
             textBox_Nome = new TextBox();
@@ -64,9 +64,9 @@
             // 
             // groupBox_Cadastro
             // 
+            groupBox_Cadastro.Controls.Add(comboBox_Fornecedor);
             groupBox_Cadastro.Controls.Add(label_Fornecedor);
             groupBox_Cadastro.Controls.Add(label_QuantidadeEstoque);
-            groupBox_Cadastro.Controls.Add(textBox_Fornecedor);
             groupBox_Cadastro.Controls.Add(label_Nome);
             groupBox_Cadastro.Controls.Add(textBox_QuantidadeEstoque);
             groupBox_Cadastro.Controls.Add(textBox_Nome);
@@ -79,6 +79,16 @@
             groupBox_Cadastro.TabIndex = 10;
             groupBox_Cadastro.TabStop = false;
             groupBox_Cadastro.Text = "Cadastro";
+            // 
+            // comboBox_Fornecedor
+            // 
+            comboBox_Fornecedor.FormattingEnabled = true;
+            comboBox_Fornecedor.Location = new Point(6, 225);
+            comboBox_Fornecedor.Name = "comboBox_Fornecedor";
+            comboBox_Fornecedor.Size = new Size(188, 23);
+            comboBox_Fornecedor.TabIndex = 13;
+            comboBox_Fornecedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox_Fornecedor.AutoCompleteSource = AutoCompleteSource.ListItems;
             // 
             // label_Fornecedor
             // 
@@ -97,14 +107,6 @@
             label_QuantidadeEstoque.Size = new Size(114, 15);
             label_QuantidadeEstoque.TabIndex = 16;
             label_QuantidadeEstoque.Text = "Quantidade Estoque";
-            // 
-            // textBox_Fornecedor
-            // 
-            textBox_Fornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Fornecedor.Location = new Point(6, 225);
-            textBox_Fornecedor.Name = "textBox_Fornecedor";
-            textBox_Fornecedor.Size = new Size(188, 23);
-            textBox_Fornecedor.TabIndex = 13;
             // 
             // label_Nome
             // 
@@ -201,6 +203,6 @@
         private Label label_QuantidadeEstoque;
         private TextBox textBox_QuantidadeEstoque;
         private Label label_Fornecedor;
-        private TextBox textBox_Fornecedor;
+        private ComboBox comboBox_Fornecedor;
     }
 }
