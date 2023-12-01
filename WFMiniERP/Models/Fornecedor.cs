@@ -1,5 +1,4 @@
-﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Data;
 using WFMiniERP.Data;
 
@@ -72,6 +71,38 @@ namespace WFMiniERP.Models
 
                 return dt;
 
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.FecharConexao();
+            }
+        }
+
+        public Fornecedor BuscaByIdDR(int id)
+        {
+            Banco bd = new();
+
+            try
+            {
+                SqlConnection cn = bd.AbrirConexao();
+                SqlCommand command = new("select * from fornecedores", cn);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader.GetInt32(0) == id)
+                    {
+                        ID = id;
+                        CNPJ = reader.GetString(1);
+                        RazaoSocial = reader.GetString(2);
+                        return this;
+                    }
+                }
+                return null;
             }
             catch (Exception ex)
             {
