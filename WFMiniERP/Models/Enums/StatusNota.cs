@@ -2,7 +2,7 @@
 {
     internal enum StatusNota : int
     {
-        Emitida = 0,
-        Cancelada = 1
+        Cancelada = 1,
+        Emitida = 2
     }
 }

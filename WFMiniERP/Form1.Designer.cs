@@ -45,6 +45,7 @@
             comboBox_Produtos = new ComboBox();
             button_EmitirNota = new Button();
             numericUpDown_Quantidade = new NumericUpDown();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Produtos).BeginInit();
             groupBox_Cadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_Quantidade).BeginInit();
@@ -208,11 +209,22 @@
             numericUpDown_Quantidade.TabIndex = 22;
             numericUpDown_Quantidade.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
+            // button1
+            // 
+            button1.Location = new Point(670, 314);
+            button1.Name = "button1";
+            button1.Size = new Size(95, 95);
+            button1.TabIndex = 24;
+            button1.Text = "Notas";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(numericUpDown_Quantidade);
             Controls.Add(button_EmitirNota);
             Controls.Add(comboBox_Produtos);
@@ -253,5 +265,6 @@
         private DataGridViewTextBoxColumn Column_Preco;
         private DataGridViewTextBoxColumn Column_Quantidade;
         private NumericUpDown numericUpDown_Quantidade;
+        private Button button1;
     }
 }

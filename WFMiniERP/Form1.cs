@@ -147,8 +147,14 @@ namespace WFMiniERP
             ItemNota item = new() { Nome = produto.Nome, Preco = produto.Preco };
             item.Quantidade = int.Parse(numericUpDown_Quantidade.Value.ToString());
 
-            dataGridView_Produtos.Rows.Add(new string[] { dataGridView_Produtos.RowCount.ToString(), item.Nome, item.Preco.ToString(), item.Quantidade.ToString() }) ;
-            
+            dataGridView_Produtos.Rows.Add(new string[] { dataGridView_Produtos.RowCount.ToString(), item.Nome, item.Preco.ToString(), item.Quantidade.ToString() });
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormNotaFiscal formNotaFiscal = new();
+            formNotaFiscal.ShowDialog();
         }
     }
 }
